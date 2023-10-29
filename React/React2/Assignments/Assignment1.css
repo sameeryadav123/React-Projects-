@@ -1,0 +1,12 @@
+
+.btn{
+    background-color: tomato;
+    padding: 1rem;
+    color: whitesmoke;
+    border: none;
+}
+
+.App{
+    text-align: center;
+    padding: 2rem;
+}
