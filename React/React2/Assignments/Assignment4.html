@@ -1,0 +1,70 @@
+<!-- BUTTON EVENT LISTENER
+Problem
+create a component called Button
+add an onClick listener, when a user clicks on the button it should print the text
+<Button name="Masai" /> -> on clicking the button, it should have an alert box which says You clicked Masai! -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Event Listner</title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+
+<script type="text/babel">
+
+    const reactRoot = ReactDOM.createRoot(document.getElementById('root'))
+
+    const btn = {
+        color: 'white',
+        padding: '15px',
+        backgroundColor: 'tomato',
+        textAlign: 'center',
+        marginTop: '240px',
+        width: '200px',
+        marginLeft: '530px',
+        border: 'none',
+        borderRadius: '10px',
+        boxShadow:'10px 10px 10px 12px lightblue'
+    }
+
+    const Button = (props) => {
+
+        const hadlerClick = () => {
+            alert(`You clicked ${props.name} !`)
+        }
+
+        return (
+            <div>
+                <button onClick={hadlerClick} style={btn}>{props.name}</button>
+
+            </div>
+        )
+    }
+
+    const App=()=>{
+        return(
+            <>
+            <Button name="Masai"/>
+            
+            </>
+        )
+    }
+
+
+    reactRoot.render(<App />)
+</script>
+
+</html>
