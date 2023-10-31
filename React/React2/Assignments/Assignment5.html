@@ -1,0 +1,63 @@
+
+<!-- CONDITIONAL RENDER
+Problem
+using a condition decide to decide how a component should render
+{ condition ? ONTRUE: ONFALSE }
+if rounded, then show a rounded avatar component
+if not rounded show a normal rounded of 1rem for the image
+add another prop, hideName, if hideName is true, then the name should not be shown
+{ hideName ? <h1> </h1> : null} -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Render</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<script type="text/babel">
+
+    const reatRoot=ReactDOM.createRoot(document.getElementById('root'))
+
+    const container={
+        textAlign:'center'
+    }
+
+const Avatar=({rounded,hideName,name})=>{
+    return(
+        <div style={container}>
+            
+            {rounded ? (<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdF0FLKUR_Nb3jVlXKy4HXJXZ5QITAvYxGew&usqp=CAU' style={{borderRadius:'50%',height:'300px',width:'300px',border:'2px solid black'}} alt='Avatar'/>)
+            :(<img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdF0FLKUR_Nb3jVlXKy4HXJXZ5QITAvYxGew&usqp=CAU" style={{borderRadius:'1rem',height:'300px',width:'300px',border:'2px solid black'}} alt='Avatar'/>)}
+
+
+            {hideName ? <h1>{name}</h1> : null}
+            </div>
+    )
+}
+
+const App=()=>{
+    return(
+        <>
+        <Avatar rounded={true} hideName={true} name='Never Give Up'/>
+        <Avatar rounded={false} hideName={false} name='I wii do it'/>
+        
+        </>
+    )
+}
+
+
+    reatRoot.render(<App/>)
+</script>
+</html>
+
+
