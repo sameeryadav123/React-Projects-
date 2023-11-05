@@ -1,0 +1,58 @@
+<!-- REACT - INPUT BOX
+Problem
+create an input box
+maintain a state called text
+when a user types in, update the state, with the onChange event
+retrieve the value from the event.target
+update the state by using setText ( Reacts dispatcher for updating the value )
+show the text in a h2 tag below the input box
+add a button called CLEAR, when you click on it, it should clear the text for the user on both the input box and the UI -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - Input BOX</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<script type="text/babel">
+const reactRoot=ReactDOM.createRoot(document.getElementById('root'))
+
+function App(){
+const [text,setText]=React.useState('')
+
+const handleChange=(event)=>{
+    setText(event.target.value)
+}
+
+
+const handleClear=()=>{
+    setText('')
+}
+return(
+<div >
+    <h1>{text}</h1>
+    <input type="text" onChange={handleChange} value={text} placeHolder="Type something"/>
+    <button onClick={handleClear}>Reset</button>
+
+    
+    </div>
+)
+
+}
+
+reactRoot.render(<App/>)
+</script>
+</html>
+
+
+
