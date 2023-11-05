@@ -1,0 +1,54 @@
+
+<!-- 
+COUNTER
+Problem
+create a component called Counter
+use React.useState hook
+give it a default value of 0 React.useState(0)
+destructure from useState by using [ count, setCount ]
+display the information in an h1 tag <h1> Count is {count} </h1>
+create a button with an event listener and attach handleClick function to it
+the handleFunction should be able to update count by setCount(count+1) -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+   <div id="root"></div> 
+</body>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<script type="text/babel">
+
+const reactRoot=ReactDOM.createRoot(document.getElementById('root'))
+
+function App(){
+
+const [count,setCount]=React.useState(0);
+
+const handleFunction=()=>{
+    setCount(count + 1)
+}
+
+return(
+    <div >
+        <h1>Count is {count}</h1>
+        <button onClick={handleFunction}>Click Me</button>
+        
+        
+        </div>
+)
+
+}
+
+reactRoot.render(<App/>)
+</script>
+</html>
