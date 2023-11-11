@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React,{useState} from "react"
+import TodoList from "./TodoList"
+import Todo from './Todo'
+import TodoItem from "./TodoItem"
+import './style.css'
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const App=()=>{
+    const [taskList,setTaskList]=useState([])
+
+    const addItme=(newTask)=>{
+        const updatedTaskList=[...taskList,newTask]
+        setTaskList(updatedTaskList)
+    }
+
+    const deleteItem=(taskId)=>{
+        const updatedTaskList=taskList.filter((task)=> task.id !== taskId)
+        setTaskList(updatedTaskList)
+    }
+
+    const toggleItem=(taskId)=>{
+        const updatedTaskList=taskList.filter((task)=>{
+            if(task.id === taskId){
+                task.status = ! task.status
+            }
+            return task
+        })
+        setTaskList(updatedTaskList)
+    }
+    return(
+        <>
+<div className="todo-container">
+
+<div className="add-todo">
+
+        <Todo addItme={addItme} />
+</div>
+        <div>
+
+    
+        <div className="todo-list">
+
+        {taskList.map((task)=>(
+            <div className="task-item">
+
+            <TodoItem className='todoItems' key={task.id} {...task} deleteItem={deleteItem} toggleItem={toggleItem}/>
+
+            </div>
+        ))}
+        </div>
+        </div>
+</div>
+        </>
+    )
 }
 
 export default App
