@@ -1,0 +1,16 @@
+.container{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    width: 500px;
+    margin-left: 400px;
+    background-color: teal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+}
+button{
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
